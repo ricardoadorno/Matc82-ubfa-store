@@ -5,22 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ufba Store</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
 </head>
 <body>
     
     <header>
-        <div class="container">
-            <h1>
-                Ufba Store</h1>
+        <div class="container" style='display: flex;'>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Bras%C3%A3o_da_UFBA.png/800px-Bras%C3%A3o_da_UFBA.png" alt="Ufba Store" class='logo'>
+            <h1>Ufba Store</h1>
         </div>
     </header>
 
+    <div class="icone-carrinho">
+        Carrinho (<span id="contador-carrinho">0</span>)
+    </div>
+
+    <div class="produtos" id="produtos"></div>
+
+    <div class="modal-overlay" id="modal-overlay"></div>
+    <div class="modal-carrinho" id="modal-carrinho">
+        <span class="fechar-carrinho">&times;</span>
+        <h2>Carrinho de Compras</h2>
+        <div id="itens-carrinho">
+            Carrinho vazio
+        </div>
+        <div class='flex'>
+            <div id="total-carrinho"></div>
+            <button id="finalizar-compra" class='finalizar-compra' onclick='finalizarCompra()'> Finalizar Compra </button>
+        </div>
+    </div>
 
     <footer>
         <div class="container">
             <p>&copy; Ufba Store. Todos os direitos reservados.</p>
         </div>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
