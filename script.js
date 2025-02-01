@@ -129,19 +129,13 @@ function finalizarCompra() {
             itens: carrinho.map(item => ({ id: item.id, quantidade: item.quantidade }))
         }
         )
-    }).then(response => {
-        if (response.ok) {
-            return response.json();
-        }
-        throw new Error('Erro ao finalizar compra.');
-    })
-
-    carrinho = [];
-    atualizarContadorCarrinho();
-    mostrarCarrinho();
-    fecharModalCarrinho();
+    }).catch(error => {
+        alert('Erro ao finalizar a compra');
+    });
 
     alert('Compra finalizada com sucesso!');
+    
+    window.location.reload();
 }
 
 // Inicializa a loja
