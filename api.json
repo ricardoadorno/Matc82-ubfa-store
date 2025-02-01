@@ -1,0 +1,100 @@
+{
+  "produtos": [
+    {
+      "id": 1,
+      "nome": "Mochila com Compartimento para Notebook",
+      "preco": 129.9,
+      "imagem": "https://files.expanssiva.com.br/products/500x500/mochila-poliester-com-compartimento-para-notebook-ate-14-polegadas-13395d3-1630947968.jpg"
+    },
+    {
+      "id": 2,
+      "nome": "Caneca Personalizada UFBA",
+      "preco": 39.9,
+      "imagem": "https://71468.cdn.simplo7.net/static/71468/sku/lembrancinhas-personalizadas-lembrancinhas-personalizadas-formatura-caneca-de-porcelana-personalizada-com-nome-e-curso--p-1663247084619.jpg"
+    },
+    {
+      "id": 3,
+      "nome": "Adesivos",
+      "preco": 29.99,
+      "imagem": "https://www.fabeestore.com.br/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/e/t/etiq-estudar.jpg"
+    },
+    {
+      "id": 4,
+      "nome": "Camiseta Estampada",
+      "preco": 59.9,
+      "imagem": "https://cdn.awsli.com.br/600x1000/679/679489/produto/63038828/ec6eca41d5.jpg"
+    },
+    {
+      "id": 5,
+      "nome": "Pendrive 64GB",
+      "preco": 49.99,
+      "imagem": "https://lojamultilaser.vtexassets.com/arquivos/ids/177906/pd587.jpg?v=636616736232800000"
+    },
+    {
+      "id": 6,
+      "nome": "Kit de Material para Engenharia/Cálculo",
+      "preco": 189.9,
+      "imagem": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_rqsjb2AAPwhg03Pdo6lRafR0eGOkzCVLQQ&s"
+    },
+    {
+      "id": 7,
+      "nome": "Livros Diversos",
+      "preco": 44.9,
+      "imagem": "https://down-br.img.susercontent.com/file/br-11134207-7r98o-m33s1ujkfo4554"
+    },
+    {
+      "nome": "Fone de Ouvido Bluetooth",
+      "preco": 79.99,
+      "imagem": "https://m.media-amazon.com/images/I/51yHf2TFfUL._AC_UF1000,1000_QL80_.jpg",
+      "id": 8
+    },
+    {
+      "id": 9,
+      "nome": "Planner Acadêmico 2025",
+      "preco": 69.9,
+      "imagem": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp-F2-znoNxb8RL3S4oAFSNE1nbabbNjgEgQ&s"
+    }
+  ],
+  "pedidos": [
+    {
+      "codigoDoPedido": 1738415960880,
+      "itens": [
+        {
+          "id": 5,
+          "quantidade": 1
+        },
+        {
+          "id": 4,
+          "quantidade": 1
+        },
+        {
+          "id": 3,
+          "quantidade": 1
+        }
+      ],
+      "id": 1
+    },
+    {
+      "codigoDoPedido": 1738416050480,
+      "itens": [
+        {
+          "id": 1,
+          "quantidade": 1
+        },
+        {
+          "id": 7,
+          "quantidade": 1
+        },
+        {
+          "id": 3,
+          "quantidade": 1
+        },
+        {
+          "id": 4,
+          "quantidade": 1
+        }
+      ],
+      "id": 2
+    }
+  ]
+}

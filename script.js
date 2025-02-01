@@ -1,62 +1,17 @@
-const produtos = [
-    {
-        id: 1,
-        nome: 'Mochila com Compartimento para Notebook',
-        preco: 129.90,
-        imagem: 'https://files.expanssiva.com.br/products/500x500/mochila-poliester-com-compartimento-para-notebook-ate-14-polegadas-13395d3-1630947968.jpg'
-    },
-    {
-        id: 2,
-        nome: 'Caneca Personalizada UFBA',
-        preco: 39.90,
-        imagem: 'https://71468.cdn.simplo7.net/static/71468/sku/lembrancinhas-personalizadas-lembrancinhas-personalizadas-formatura-caneca-de-porcelana-personalizada-com-nome-e-curso--p-1663247084619.jpg'
-    },
-    {
-        id: 3,
-        nome: 'Adesivos',
-        preco: 29.99,
-        imagem: 'https://www.fabeestore.com.br/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/e/t/etiq-estudar.jpg'
-    },
-    {
-        id: 4,
-        nome: 'Camiseta Estampada',
-        preco: 59.90,
-        imagem: 'https://cdn.awsli.com.br/600x1000/679/679489/produto/63038828/ec6eca41d5.jpg'
-    },
-    {
-        id: 5,
-        nome: 'Pendrive 64GB',
-        preco: 49.99,
-        imagem: 'https://lojamultilaser.vtexassets.com/arquivos/ids/177906/pd587.jpg?v=636616736232800000'
-    },
-    {
-        id: 6,
-        nome: 'Kit de Material para Engenharia/Cálculo',
-        preco: 189.90,
-        imagem: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_rqsjb2AAPwhg03Pdo6lRafR0eGOkzCVLQQ&s'
-    },
-    {
-        id: 7,
-        nome: 'Livros Diversos',
-        preco: 44.90,
-        imagem: 'https://down-br.img.susercontent.com/file/br-11134207-7r98o-m33s1ujkfo4554'
-    },
-    {
-        id: 8,
-        nome: 'Fone de Ouvido Bluetooth',
-        preco: 79.99,
-        imagem: 'https://m.media-amazon.com/images/I/51yHf2TFfUL._AC_UF1000,1000_QL80_.jpg'
-    },
-    {
-        id: 9,
-        nome: 'Planner Acadêmico 2025',
-        preco: 69.90,
-        imagem: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp-F2-znoNxb8RL3S4oAFSNE1nbabbNjgEgQ&s'
-    }
-];
-
+function buscarProdutosNoServidor() {
+    fetch('http://localhost:3000/produtos')
+        .then(response => response.json())
+        .then(json => {
+            produtos = json;
+            mostrarProdutos();
+        }).catch(error => {
+            alert('Erro ao buscar produtos da API.');
+        });
+}
 
 let carrinho = [];
+
+let produtos = [];
 
 function mostrarProdutos() {
     const containerProdutos = document.getElementById('produtos');
@@ -76,6 +31,7 @@ function mostrarProdutos() {
     `).join('');
 }
 
+// Controle do Carrinho
 function adicionarAoCarrinho(idProduto) {
     const produto = produtos.find(p => p.id === idProduto);
     const itemCarrinho = carrinho.find(item => item.id === idProduto);
@@ -120,7 +76,7 @@ function mostrarCarrinho() {
             </div>
             <div>
                 <p>R$ ${(item.preco * item.quantidade).toFixed(2)}</p>
-                <button class="btn-remover " onclick="removerDoCarrinho(${item.id})">Remover</button>
+                <button class="btn-remover" onclick="removerDoCarrinho(${item.id})">Remover</button>
             </div>
         </div>
     `).join('');
@@ -162,6 +118,24 @@ function fecharModalCarrinho() {
 fecharCarrinho.addEventListener('click', fecharModalCarrinho);
 
 function finalizarCompra() {
+
+    fetch('http://localhost:3000/pedidos', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            codigoDoPedido: Date.now(),
+            itens: carrinho.map(item => ({ id: item.id, quantidade: item.quantidade }))
+        }
+        )
+    }).then(response => {
+        if (response.ok) {
+            return response.json();
+        }
+        throw new Error('Erro ao finalizar compra.');
+    })
+
     carrinho = [];
     atualizarContadorCarrinho();
     mostrarCarrinho();
@@ -171,4 +145,4 @@ function finalizarCompra() {
 }
 
 // Inicializa a loja
-mostrarProdutos();
+buscarProdutosNoServidor();

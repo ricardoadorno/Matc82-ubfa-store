@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Gestão de E-commerce</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+<body>
+    <header>
+        <div class="container" style='display: flex;'>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Bras%C3%A3o_da_UFBA.png/800px-Bras%C3%A3o_da_UFBA.png" alt="Ufba Store" class='logo'>
+            <h1>Ufba Store</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2>Gestão de E-commerce</h2>
+
+        <div class="secao">
+            <h2>Produtos Cadastrados</h2>
+            <div class="lista-produtos" id="listaProdutos"></div>
+        </div>
+
+        <div class="formulario secao">
+            <h2>Adicionar Novo Produto</h2>
+                <input type="text" id="nomeProduto" placeholder="Nome do produto" required>
+                <input type="number" id="precoProduto" placeholder="Preço" required>
+                <input type="text" id="imagemProduto" placeholder="URL da imagem" required>
+                <button onclick='adicionarProduto()'>Adicionar Produto</button>
+        </div>
+
+        <div class="secao">
+            <h2>Compras Realizadas</h2>
+            <div class="pedidos" id="listaPedidos"></div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; Ufba Store. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    <script src="admin-script.js"></script>
+</body>
+</html>
