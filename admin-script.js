@@ -44,7 +44,7 @@ containerPedidos.innerHTML = pedidos.map(pedido => `
     <div class="pedidos">
         <h3>Pedido #${pedido.codigoDoPedido}</h3>
         ${pedido.itens.map(item => {
-            const produto = produtos.find(p => p.id === item.id);
+            const produto = produtos.find(p => +p.id === +item.id);
             total += produto.preco * item.quantidade;
             return `
                 <div class="cartao-pedido">
@@ -59,7 +59,7 @@ containerPedidos.innerHTML = pedidos.map(pedido => `
 
 function renderizarFormularioEdicao(produtoId) {
 const containerFormulario = document.querySelector('.formulario');
-const produto = produtos.find(p => p.id === produtoId);
+const produto = produtos.find(p => +p.id === +produtoId);
 
 containerFormulario.innerHTML = `
         <h2>Editar Produto</h2>

@@ -33,8 +33,8 @@ function mostrarProdutos() {
 
 // Controle do Carrinho
 function adicionarAoCarrinho(idProduto) {
-    const produto = produtos.find(p => p.id === idProduto);
-    const itemCarrinho = carrinho.find(item => item.id === idProduto);
+    const produto = produtos.find(p => +p.id === +idProduto);
+    const itemCarrinho = carrinho.find(item => +item.id === +idProduto);
 
     if (itemCarrinho) {
         itemCarrinho.quantidade++;
@@ -44,7 +44,7 @@ function adicionarAoCarrinho(idProduto) {
             quantidade: 1
         });
     }
-
+    
     atualizarContadorCarrinho();
     mostrarCarrinho();
 }
